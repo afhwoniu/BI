@@ -1,0 +1,50 @@
+# ===== 历史设计方案导出（大文件，非源代码）=====
+*设计方案*.json
+
+# ===== .NET =====
+**/bin/
+**/obj/
+**/TempBuild/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+project.lock.json
+TestResults/
+
+# ===== Node / 前端 =====
+**/node_modules/
+**/dist/
+**/.vite/
+**/npm-debug.log*
+**/yarn-error.log*
+**/.pnpm-debug.log*
+**/auto-imports.d.ts
+**/components.d.ts
+
+# ===== 桌面端 WebView2 缓存 =====
+**/*.WebView2/
+**/*.exe.WebView2/
+
+# ===== 日志 =====
+**/logs/
+**/*.log
+
+# ===== IDE / 编辑器 =====
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== 系统 =====
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# ===== 临时 / 数据库文件 =====
+*.tmp
+*.bak
+*.dbmdl
+*.cache
