@@ -1,0 +1,6 @@
+急诊人次 (kpi)
+SELECT COUNT(*) as value FROM (SELECT DATE_FORMAT(reg.regdate, '%Y-%m-%d') AS 就诊日期, reg.hospitalname AS 医院名称, reg.acceptdeptname AS 科室名称, reg.acceptedphysicianname AS 医生姓名, reg.patientid AS 患者ID, reg.visitnumber AS 门诊号 FROM pa_registration reg WHERE reg.regdate >= '2026-06-01' AND reg.regdate <= '2026-06-30' AND reg.acceptkindname = '急诊' AND reg.currentage < 25 AND reg.recordstatusname = '正常挂号') t
+按时间趋势 (line)
+SELECT 就诊日期, COUNT(*) as 人次 FROM (SELECT DATE_FORMAT(reg.regdate, '%Y-%m-%d') AS 就诊日期, reg.hospitalname AS 医院名称, reg.acceptdeptname AS 科室名称, reg.acceptedphysicianname AS 医生姓名, reg.patientid AS 患者ID, reg.visitnumber AS 门诊号 FROM pa_registration reg WHERE reg.regdate >= '2026-06-01' AND reg.regdate <= '2026-06-30' AND reg.acceptkindname = '急诊' AND reg.currentage < 25 AND reg.recordstatusname = '正常挂号') t GROUP BY 就诊日期 ORDER BY 人次 DESC LIMIT 50
+按科室分布 (bar)
+SELECT 科室名称, COUNT(*) as 人次 FROM (SELECT DATE_FORMAT(reg.regdate, '%Y-%m-%d') AS 就诊日期, reg.hospitalname AS 医院名称, reg.acceptdeptname AS 科室名称, reg.acceptedphysicianname AS 医生姓名, reg.patientid AS 患者ID, reg.visitnumber AS 门诊号 FROM pa_registration reg WHERE reg.regdate >= '2026-06-01' AND reg.regdate <= '2026-06-30' AND reg.acceptkindname = '急诊' AND reg.currentage < 25 AND reg.recordstatusname = '正常挂号') t GROUP BY 科室名称 ORDER BY 人次 DESC LIMIT 50

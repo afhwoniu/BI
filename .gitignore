@@ -48,3 +48,9 @@ Desktop.ini
 *.bak
 *.dbmdl
 *.cache
+
+# ===== 本地敏感配置（含真实密码），请勿提交 =====
+# 使用 appsettings.example.json 作为模板，clone 后复制为 appsettings.json 并填入真实值
+**/appsettings.json
+**/appsettings.Development.json
+**/appsettings.Production.json
